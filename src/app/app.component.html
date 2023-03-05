@@ -4,10 +4,6 @@
   </div>
   <div class="container">
       <app-todo-task [tasksList]="tasksList" (emitDelete)="delete($event)" (emitMarkDone)="markDone($event)"></app-todo-task>
-      <div>
-        <li *ngFor="let task of tasksDone">
-          {{task}}
-        </li>
-      </div>
+      <app-done-task [tasksDone]="tasksDone" (revertTask)="revert($event)"></app-done-task>
   </div>
 </div>

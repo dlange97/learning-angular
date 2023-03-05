@@ -1,0 +1,9 @@
+<div>
+  <p>Wykonane zadania: {{ tasksDone.length }}</p>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let task of tasksDone">
+      {{task}}
+      <button class="btn btn-secondary" (click)="revert(task)">Cofaj do todo</button>
+    </li>
+  </ul>
+  </div>

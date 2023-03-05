@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TodoTaskComponent } from './todo-task/todo-task.component';
+import { DoneTaskComponent } from './done-task/done-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TicketComponent,
     AddTaskComponent,
-    TodoTaskComponent
+    TodoTaskComponent,
+    DoneTaskComponent
   ],
   imports: [
     BrowserModule,

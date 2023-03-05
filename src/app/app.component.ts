@@ -22,4 +22,13 @@ export class AppComponent {
     this.tasksDone.push(task);
     this.delete(task);
   }
+
+  revert(task: string) {
+    this.tasksList.push(task);
+    this.deleteTasksDone(task);
+  }
+
+  deleteTasksDone(task: string) {
+    this.tasksDone = this.tasksDone.filter(e => e !==task);
+  }
 }
