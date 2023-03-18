@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../services/tasks.service';
+import { Task } from '../models/task';
 
 @Component({
   selector: 'app-done-task',
@@ -7,18 +9,19 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class DoneTaskComponent implements OnInit {
 
-  @Input()
-  tasksDone: Array<string> = [];
-  @Output()
-  revertTask = new EventEmitter<string>;
+  public tasksDone: Array<Task> = [];
 
-  constructor() { }
+  constructor(private taskService: TaskService) {
+    this.taskService.getTasksDoneObs().subscribe((tasks: Array<Task>) =>{
+      this.tasksDone = tasks;
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  revert(task: string) {
-    this.revertTask.emit(task);
+  public revert(task: Task) {
+    this.taskService.revert(task);
   }
 
 }

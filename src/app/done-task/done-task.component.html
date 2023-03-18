@@ -2,7 +2,8 @@
   <p>Wykonane zadania: {{ tasksDone.length }}</p>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let task of tasksDone">
-      {{task}}
+      Task: <p>{{task.name}}</p>
+      Stworzono: <p>{{task.createdAt}}</p>
       <button class="btn btn-secondary" (click)="revert(task)">Cofaj do todo</button>
     </li>
   </ul>
